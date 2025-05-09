@@ -1,4 +1,4 @@
-```python
+python
 class RealEstateInvestment:
     def __init__(self, land_location, land_area, land_zone, land_value, land_value_increase, building_cost, building_period):
         self.land_location = land_location
@@ -9,15 +9,15 @@ class RealEstateInvestment:
         self.building_cost = building_cost
         self.building_period = building_period
 
-    def calculate_investment_return(self):
+    - def calculate_investment_return(self):
         # 在这里编写计算投资回报的逻辑
         # 可以根据输入的数据进行各种计算，比如土地利用率、投资回报率等
 
         return investment_return
 
 # 接收用户输入数据
-land_location = input("请输入土地坐落：高發段114地號")
-land_area = float(input("请输入土地面積：1882平方米"))
+land_location = input("请输入土地坐落：XXXXX")
+land_area = float(input("请输入土地面積:XXXXX"))
 land_zone = input("请输入土地使用分區：一般農業區")
 land_value = float(input("请输入土地公告現值：3100"))
 land_value_increase = float(input("请输入土地公告現值增幅："))
@@ -33,4 +33,41 @@ investment_return = investment_case.calculate_investment_return()
 print("投资回报为：", investment_return)
 ```
 
-您可以将以上代码保存为一个Python文件，并在命令行或集成开发环境中运行。用户可以根据提示逐步输入与房地产投资个案相关的数据，系统将自动计算投资回报。希望这个示例对您有所帮助！如果您有其他需求或问题，请随时告诉我。
+- USE:以下是一个简单的Python代码示例，用于设计土地开发分析系统的输入数据接收模块：
+# 步骤1：确定需要接收的输入数据
+input_data = {
+    "土地面积": None,
+    "土地使用分区": None,
+    "土地公告现值": None
+}
+
+# 步骤2：设计数据结构
+# 使用字典来存储输入数据
+data_storage = {}
+
+# 步骤3：建立数据接收功能
+def receive_input():
+    for key in input_data:
+        value = input(f"请输入{key}: ")
+        input_data[key] = value
+
+# 步骤4：验证输入数据的完整性和准确性
+def validate_input():
+    for key, value in input_data.items():
+        if value is None or value == "":
+            print(f"{key}不能为空，请重新输入。")
+            return False
+    return True
+
+# 步骤5：建立数据存储功能
+def store_data():
+    if validate_input():
+        data_storage["土地信息"] = input_data
+        print("数据已成功存储。")
+
+# 主程序
+receive_input()
+store_data()
+```
+
+
